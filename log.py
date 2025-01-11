@@ -11,19 +11,19 @@ class Logger:
 
     def _write_to_file(self, log_str: str) -> None:
         """Writes a log message to the file if logging is enabled."""
-        if self.should_log and self.logpath:
-            if os.path.exists(self.logpath):
-                with open(self.logpath, "a") as log_file:
-                    log_file.write(log_str + "\n")  # Add newline for each log entry
-            else:
-                with open(self.logpath, "w") as log_file:
-                    log_file.write(log_str + "\n")  # Add newline for each log entry
+        if os.path.exists(self.logpath):
+            with open(self.logpath, "a") as log_file:
+                log_file.write(log_str + "\n")  # Add newline for each log entry
+        else:
+            with open(self.logpath, "w") as log_file:
+                log_file.write(log_str + "\n")  # Add newline for each log entry
                 
     def _log(self, string: str, text: str, color: str) -> None:
         """Handles the logging functionality."""
         log_str = f"{datetime.datetime.now().isoformat()} {text}: {string}"
         print(termcolor.colored(log_str, color))
-        self._write_to_file(log_str)
+        if self.should_log and self.logpath:
+            self._write_to_file(log_str)
         
     def debug(self,string:str) -> None:
         self._log(string,"DEBUG","light_blue")
