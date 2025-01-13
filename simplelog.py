@@ -43,7 +43,8 @@ class Logger:
                     f"{datetime.datetime.now().isoformat()} {prefix} [{level}]: {input}"
                 )
             else:
-                raise ValueError
+                raise ValueError(f"Invalid log level '{level}'. Allowed levels are: {', '.join(repr(x) for x in self.loglevels)}.")
+
         else:
             log_str = f"{datetime.datetime.now().isoformat()} {prefix}: {input}"
         return log_str
