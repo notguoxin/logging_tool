@@ -1,0 +1,15 @@
+[tool.poetry]
+name = "simplelog.py"
+version = "0.1.1"
+description = "A simple logger utility with colored output and optional file logging."
+authors = ["Guo Xin githublol@guoxin.win"]
+license = "GNU GPLv3"
+
+[tool.poetry.dependencies]
+python = ">=3.11"
+termcolor = "^2.3.0"
+colorama = "^0.4.6"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
