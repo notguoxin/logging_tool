@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "simplelog"
-version = "0.1.4"
+version = "0.1.5"
 description = "A simple logger utility with colored output and optional file logging."
 authors = ["Guo Xin githublol@guoxin.win"]
 license = "GNU GPLv3"
